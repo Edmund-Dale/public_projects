@@ -14327,7 +14327,7 @@ The full 23.8 Mb file is included in this Github repository and it will be used 
 <span class="c1"># def sample_df_to_csv(acs1_full_df): # now sample 3650 rows at random so we can generate a csv file smaller than 10 Mb</span>
 <span class="c1">#     acs1_sample_df = acs1_full_df.sample(3650, random_state = 3)</span>
 <span class="c1">#     curr_date_time = datetime.now().strftime(&quot;%Y%m%d-%H%M%S&quot;)</span>
-<span class="c1">#     data_path = r&#39;C:\Users\Edmund\OMSA\OMSA_scripts\OMSA_courses\CSE6040\extra_credit_working_with_census_data\acs1_sample&#39; + curr_date_time + &#39;.csv&#39;</span>
+<span class="c1">#     data_path = r&#39;acs1_sample&#39; + curr_date_time + &#39;.csv&#39;</span>
 <span class="c1">#     acs1_sample_df.to_csv(data_path, index=False) # see what this makes and see how big the file size is.</span>
 
 <span class="c1"># sample_df_to_csv(acs1_full_df)</span>
@@ -15337,7 +15337,7 @@ to use the geopandas library to create heat maps showing the predicted and actua
 <span class="c1"># https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2020&amp;layergroup=Census+Tracts</span>
 
 <span class="c1"># test to see what the shape of the 2020 shapefile is, because I expect more census tracts:</span>
-<span class="n">shape_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Edmund\OMSA\OMSA_scripts\OMSA_courses\CSE6040\extra_credit_working_with_census_data\tl_2020_06_tract\tl_2020_06_tract.shp&quot;</span>
+<span class="n">shape_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;tl_2020_06_tract.shp&quot;</span>
 <span class="n">geo_df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">shape_path</span><span class="p">)</span>
 <span class="n">geo_df</span> <span class="o">=</span> <span class="n">geo_df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
 <span class="n">geo_df</span><span class="p">[[</span><span class="s1">&#39;COUNTYFP&#39;</span><span class="p">,</span><span class="s1">&#39;TRACTCE&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">geo_df</span><span class="p">[[</span><span class="s1">&#39;COUNTYFP&#39;</span><span class="p">,</span><span class="s1">&#39;TRACTCE&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># change county and tract to int to make subsequent merging easier.</span>
